@@ -1,0 +1,194 @@
+{
+	"controllers": [
+		{
+			"hostname": "{controller.1.ip}",
+			"port": "{controller.1.port}",
+			"identifierRegex": "%server%identity%",
+			"startIdentifier": 1,
+			"requests": [
+				{
+					"requestTimeout": 30000,
+					"scenario": {
+						"id": null,
+						"properties": {
+							"serverHostname": "{lb.ip}",
+							"serverPort": "{lb.port}",
+							"resendInterval": 3000,
+							"identifierRegex": "%server%identity%",
+							"startIdentifier": 1,
+							"scenarioDelay": 0,
+							"minPingInterval": 5000,
+							"username": "{account.username}",
+							"password": "{account.password}"
+						},
+						"count": 1,
+						"threshold": 1000,
+						"startThreshold": 500,
+						"continueOnError": false,
+						"commands": [
+							{
+								"code": "PROTO",
+								"sendTime": 0
+							},
+							{
+								"code": "INIT",
+								"sendTime": 1000
+							},
+							{
+								"code": "OPEN",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "IDLE_TIMEOUT",
+										"value": "10000"
+									}
+								]
+							},
+							{
+								"code": "BEGIN",
+								"sendTime": 1000
+							},
+							{
+								"code": "ATTACH",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "ROLE",
+										"value": "RECEIVER"
+									},
+									{
+										"type": "ADDRESS",
+										"value": "foo/bar"
+									},
+									{
+										"type": "RCV_MODE",
+										"value": "SECOND"
+									},
+									{
+										"type": "SND_MODE",
+										"value": "UNSETTLED"
+									}
+								]
+							},
+							{
+								"code": "DETACH",
+								"sendTime": 15000,
+								"commandProperties": [
+									{
+										"type": "ADDRESS",
+										"value": "foo/bar"
+									}
+								]
+							},
+							{
+								"code": "END",
+								"sendTime": 1000
+							},
+							{
+								"code": "CLOSE",
+								"sendTime": 1000
+							}
+						]
+					}
+				},
+				{
+					"requestTimeout": 30000,
+					"scenario": {
+						"id": null,
+						"properties": {
+							"serverHostname": "{lb.ip}",
+							"serverPort": "{lb.port}",
+							"resendInterval": 3000,
+							"identifierRegex": "%identity%server%",
+							"startIdentifier": 1,
+							"scenarioDelay": 5000,
+							"minPingInterval": 5000,
+							"username": "{account.username}",
+							"password": "{account.password}"
+						},
+						"count": 1000,
+						"threshold": 1000,
+						"startThreshold": 500,
+						"continueOnError": false,
+						"commands": [
+							{
+								"code": "PROTO",
+								"sendTime": 0
+							},
+							{
+								"code": "INIT",
+								"sendTime": 1000
+							},
+							{
+								"code": "OPEN",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "IDLE_TIMEOUT",
+										"value": "10000"
+									}
+								]
+							},
+							{
+								"code": "BEGIN",
+								"sendTime": 1000
+							},
+							{
+								"code": "ATTACH",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "ROLE",
+										"value": "SENDER"
+									},
+									{
+										"type": "ADDRESS",
+										"value": "foo/bar"
+									},
+									{
+										"type": "RCV_MODE",
+										"value": "SECOND"
+									},
+									{
+										"type": "SND_MODE",
+										"value": "UNSETTLED"
+									}
+								]
+							},
+							{
+								"code": "TRANSFER",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "ADDRESS",
+										"value": "foo/bar"
+									},
+									{
+										"type": "RESEND_TIME",
+										"value": "1000"
+									},
+									{
+										"type": "COUNT",
+										"value": "5"
+									},
+									{
+										"type": "MESSAGE_LENGTH",
+										"value": "20"
+									}
+								]
+							},
+							{
+								"code": "END",
+								"sendTime": 1000
+							},
+							{
+								"code": "CLOSE",
+								"sendTime": 1000
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

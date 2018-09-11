@@ -1,0 +1,186 @@
+{
+	"controllers": [
+		{
+			"hostname": "{controller.1.ip}",
+			"port": "{controller.1.port}",
+			"identifierRegex": "%server%identity%",
+			"startIdentifier": 1,
+			"requests": [
+				{
+					"requestTimeout": 250000,
+					"scenario": {
+						"id": null,
+						"properties": {
+							"serverHostname": "{lb.ip}",
+							"serverPort": "{lb.port}",
+							"resendInterval": 3000,
+							"identifierRegex": "%server%identity%",
+							"startIdentifier": 1,
+							"scenarioDelay": 0,
+							"minPingInterval": 5000,
+							"username": "{account.username}",
+							"password": "{account.password}"
+						},
+						"count": 33334,
+						"threshold": 1000,
+						"startThreshold": 1000,
+						"continueOnError": false,
+						"commands": [
+							{
+								"code": "PROTO",
+								"sendTime": 0
+							},
+							{
+								"code": "INIT",
+								"sendTime": 1000
+							},
+							{
+								"code": "OPEN",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "IDLE_TIMEOUT",
+										"value": "25000"
+									}
+								]
+							},
+							{
+								"code": "BEGIN",
+								"sendTime": 1000
+							},
+							{
+								"code": "END",
+								"sendTime": 120000
+							},
+							{
+								"code": "CLOSE",
+								"sendTime": 2000
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"hostname": "{controller.2.ip}",
+			"port": "{controller.2.port}",
+			"identifierRegex": "%identity%server%",
+			"startIdentifier": 100000,
+			"requests": [
+				{
+					"requestTimeout": 250000,
+					"scenario": {
+						"id": null,
+						"properties": {
+							"serverHostname": "{lb.ip}",
+							"serverPort": "{lb.port}",
+							"resendInterval": 3000,
+							"identifierRegex": "%identity%server%",
+							"startIdentifier": 1,
+							"scenarioDelay": 0,
+							"minPingInterval": 5000,
+							"username": "{account.username}",
+							"password": "{account.password}"
+						},
+						"count": 33333,
+						"threshold": 1000,
+						"startThreshold": 1000,
+						"continueOnError": false,
+						"commands": [
+							{
+								"code": "PROTO",
+								"sendTime": 0
+							},
+							{
+								"code": "INIT",
+								"sendTime": 1000
+							},
+							{
+								"code": "OPEN",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "IDLE_TIMEOUT",
+										"value": "25000"
+									}
+								]
+							},
+							{
+								"code": "BEGIN",
+								"sendTime": 1000
+							},
+							{
+								"code": "END",
+								"sendTime": 120000
+							},
+							{
+								"code": "CLOSE",
+								"sendTime": 2000
+							}
+						]
+					}
+				}
+			]
+		},{
+			"hostname": "{controller.3.ip}",
+			"port": "{controller.3.port}",
+			"identifierRegex": "%identity%",
+			"startIdentifier": 200000,
+			"requests": [
+				{
+					"requestTimeout": 250000,
+					"scenario": {
+						"id": null,
+						"properties": {
+							"serverHostname": "{lb.ip}",
+							"serverPort": "{lb.port}",
+							"resendInterval": 3000,
+							"identifierRegex": "%identity%",
+							"startIdentifier": 1,
+							"scenarioDelay": 0,
+							"minPingInterval": 5000,
+							"username": "{account.username}",
+							"password": "{account.password}"
+						},
+						"count": 33333,
+						"threshold": 1000,
+						"startThreshold": 1000,
+						"continueOnError": false,
+						"commands": [
+							{
+								"code": "PROTO",
+								"sendTime": 0
+							},
+							{
+								"code": "INIT",
+								"sendTime": 1000
+							},
+							{
+								"code": "OPEN",
+								"sendTime": 1000,
+								"commandProperties": [
+									{
+										"type": "IDLE_TIMEOUT",
+										"value": "25000"
+									}
+								]
+							},
+							{
+								"code": "BEGIN",
+								"sendTime": 1000
+							},
+							{
+								"code": "END",
+								"sendTime": 120000
+							},
+							{
+								"code": "CLOSE",
+								"sendTime": 2000
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}
