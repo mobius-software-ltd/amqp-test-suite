@@ -104,27 +104,27 @@ public class RunnerTests
 
 	private static void fillTemplateRemote()
 	{
-		templateParser.addTemplate("{controller.1.ip}", "137.117.254.35");
-		templateParser.addTemplate("{controller.1.port}", "9998");
-		templateParser.addTemplate("{controller.2.ip}", "137.117.225.70");
-		templateParser.addTemplate("{controller.2.port}", "9998");
-		templateParser.addTemplate("{controller.3.ip}", "137.117.225.249");
-		templateParser.addTemplate("{controller.3.port}", "9998");
-		templateParser.addTemplate("{lb.ip}", "13.94.158.185");
-		templateParser.addTemplate("{lb.port}", "5672");
-		templateParser.addTemplate("{account.username}", "first@foo.bar");
-		templateParser.addTemplate("{account.password}", "hash");
+		templateParser.addTemplate("controller.1.ip", "137.117.254.35");
+		templateParser.addTemplate("controller.1.port", "9998");
+		templateParser.addTemplate("controller.2.ip", "137.117.225.70");
+		templateParser.addTemplate("controller.2.port", "9998");
+		templateParser.addTemplate("controller.3.ip", "137.117.225.249");
+		templateParser.addTemplate("controller.3.port", "9998");
+		templateParser.addTemplate("broker.ip", "13.94.158.185");
+		templateParser.addTemplate("broker.port", "5672");
+		templateParser.addTemplate("account.username", "first@foo.bar");
+		templateParser.addTemplate("account.password", "hash");
 	}
 
 	private static void fillTemplateLocal()
 	{
-		templateParser.addTemplate("{controller.1.ip}", "127.0.0.1");
-		templateParser.addTemplate("{controller.1.port}", "9998");
-		templateParser.addTemplate("{controller.2.ip}", "127.0.0.1");
-		templateParser.addTemplate("{controller.2.port}", "9998");
-		templateParser.addTemplate("{lb.ip}", "127.0.1.1");
-		templateParser.addTemplate("{lb.port}", "5672");
-		templateParser.addTemplate("{account.username}", "firstTestAccount");
-		templateParser.addTemplate("{account.password}", "firstTestAccountMqttPassword111");
+		templateParser.addTemplate("controller.1.ip", "127.0.0.1");
+		templateParser.addTemplate("controller.1.port", "9998");
+		templateParser.addTemplate("controller.2.ip", "127.0.0.1");
+		templateParser.addTemplate("controller.2.port", "9998");
+		templateParser.addTemplate("broker.ip", "127.0.1.1");
+		templateParser.addTemplate("broker.port", "5672");
+		templateParser.addTemplate("account.username", "firstTestAccount");
+		templateParser.addTemplate("account.password", "firstTestAccountMqttPassword111");
 	}
 }

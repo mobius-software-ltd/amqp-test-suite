@@ -307,6 +307,15 @@ public class Client implements ConnectionListener, TimedTask
 			switch (message.getCode())
 			{
 			case PROTO:
+				if (pending != null && pending.getCode() == HeaderCode.PROTO)
+				{
+					AMQPProtoHeader proto = (AMQPProtoHeader) message;
+					if (proto.getProtocolId() == 0)
+					{
+						pendingCommand.set(null);
+						orchestrator.getScheduler().store(getNextTimestamp(), this);
+					}
+				}
 				break;
 
 			case MECHANISMS:
@@ -448,7 +457,21 @@ public class Client implements ConnectionListener, TimedTask
 
 			case CLOSE:
 				if (pending == null || pending.getCode() != HeaderCode.CLOSE)
-					report.reportError(ErrorType.PREVIOUS_COMMAND_FAILED, "received unexpected " + message.getCode() + (pending != null ? ", pending " + pending.getCode() : ""));
+				{
+					AMQPClose close = (AMQPClose) message;
+					StringBuilder sb = new StringBuilder()//
+							.append("received unexpected ")//
+							.append(message.getCode())//
+							.append((pending != null ? ", pending " + pending.getCode() : ""));
+					if (close.getError() != null)
+					{
+						if (close.getError().getCondition() != null)
+							sb.append(", condition=").append(close.getError().getCondition());
+						if (close.getError().getDescription() != null)
+							sb.append(", description=").append(close.getError().getDescription());
+					}
+					report.reportError(ErrorType.PREVIOUS_COMMAND_FAILED, sb.toString());
+				}
 				else
 				{
 					stopPingTimer();

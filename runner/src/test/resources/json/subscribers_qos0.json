@@ -1,8 +1,8 @@
 {
 	"controllers": [
 		{
-			"hostname": "{controller.1.ip}",
-			"port": "{controller.1.port}",
+			"hostname": "controller.1.ip",
+			"port": "controller.1.port",
 			"identifierRegex": "%server%identity%",
 			"startIdentifier": 1,
 			"requests": [
@@ -11,15 +11,15 @@
 					"scenario": {
 						"id": null,
 						"properties": {
-							"serverHostname": "{lb.ip}",
-							"serverPort": "{lb.port}",
+							"serverHostname": "broker.ip",
+							"serverPort": "broker.port",
 							"resendInterval": 3000,
 							"identifierRegex": "%server%identity%",
 							"startIdentifier": 1,
 							"scenarioDelay": 0,
 							"minPingInterval": 5000,
-							"username": "{account.username}",
-							"password": "{account.password}"
+							"username": "account.username",
+							"password": "account.password"
 						},
 						"count": 1000,
 						"threshold": 1000,
@@ -33,6 +33,16 @@
 							{
 								"code": "INIT",
 								"sendTime": 1000
+							},
+							{
+								"code": "PROTO",
+								"sendTime": 100,
+								"commandProperties": [
+									{
+										"type": "VERSION",
+										"value": 0
+									}
+								]
 							},
 							{
 								"code": "OPEN",
@@ -96,15 +106,15 @@
 					"scenario": {
 						"id": null,
 						"properties": {
-							"serverHostname": "{lb.ip}",
-							"serverPort": "{lb.port}",
+							"serverHostname": "broker.ip",
+							"serverPort": "broker.port",
 							"resendInterval": 3000,
 							"identifierRegex": "%identity%server%",
 							"startIdentifier": 1,
 							"scenarioDelay": 5000,
 							"minPingInterval": 5000,
-							"username": "{account.username}",
-							"password": "{account.password}"
+							"username": "account.username",
+							"password": "account.password"
 						},
 						"count": 1,
 						"threshold": 1000,
@@ -118,6 +128,16 @@
 							{
 								"code": "INIT",
 								"sendTime": 1000
+							},
+							{
+								"code": "PROTO",
+								"sendTime": 100,
+								"commandProperties": [
+									{
+										"type": "VERSION",
+										"value": 0
+									}
+								]
 							},
 							{
 								"code": "OPEN",

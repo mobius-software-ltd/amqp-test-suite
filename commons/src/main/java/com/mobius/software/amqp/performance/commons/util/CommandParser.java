@@ -94,6 +94,11 @@ public class CommandParser
 				return true;
 
 			case PROTO:
+				String protoVersion = propertyMap.get(PropertyType.VERSION);
+				if (StringUtils.isEmpty(protoVersion) || (Integer.parseInt(protoVersion) != 0 && Integer.parseInt(protoVersion) != 3))
+					return false;
+				return true;
+				
 			case END:
 			case CLOSE:
 			case PING:
@@ -120,7 +125,7 @@ public class CommandParser
 		switch (command.getCode())
 		{
 		case PROTO:
-			return AMQPProtoHeader.VER_1_0_0;
+			return new AMQPProtoHeader(Integer.parseInt(propertyMap.get(PropertyType.VERSION)));
 
 		case INIT:
 			return SASLInit.builder()//
