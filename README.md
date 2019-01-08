@@ -1,4 +1,4 @@
-# Performance Сoap Test Suite
+# Performance AMQP Test Suite
 
 ## Getting started
 
