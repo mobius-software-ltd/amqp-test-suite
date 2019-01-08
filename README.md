@@ -15,7 +15,7 @@ The following programs should be installed before starting to clone the project:
 
 ### Installation
 
-First of all, you should clone [Performance COAP Test Suite](https://github.com/mobius-software-ltd/amqp-test-suite).
+First of all, you should clone [Performance AMQP Test Suite](https://github.com/mobius-software-ltd/amqp-test-suite).
 
 Then you have to build the project. For this purpose run in console "mvn clean install -Dgpg.skip=true" 
 
