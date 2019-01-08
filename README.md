@@ -23,7 +23,7 @@ Now you have the controller (amqp-test-suite/controller/target/amqp-controller) 
 (amqp-test-suite/runner/target/amqp-scenario-runner)jar files on your computer.
 To make the work more convenient, create _performance_test_ folder containing
 `amqp-controller.jar` and `amqp-scenario-runner.jar`.
-Also you should add [JSON files](https://github.com/mobius-software-ltd/amqp-test-suite/tree/master/runner/src/test/resources/json) and [config.properties](https://github.com/mobius-software-ltd/coap-test-suite/controller/src/main/resources/config.properties) to this very performance_test folder. 
+Also you should add [JSON files](https://github.com/mobius-software-ltd/amqp-test-suite/tree/master/runner/src/test/resources/json) and [config.properties](https://github.com/mobius-software-ltd/amqp-test-suite/controller/src/main/resources/config.properties) to this very performance_test folder. 
 Modify scenario file by setting "controller.1.ip", "controller.1.port", "broker.ip", "broker.port", "account.username", 
 "account.password" with public IP addresses used on controller and broker.
 In config.properties set "localHostname" property with local ip address of the machine running the controller.
@@ -56,7 +56,7 @@ java -jar test-runner.jar publishers_qos0.json
 ```
 The command mentioned above is an example of running the test scenario which is described in `publishers_qos0.json` file.
 
-Each [JSON file](https://github.com/mobius-software-ltd/amqp-test-suite/tree/master/runner/src/test/resources/json) contains different test scenarios. You can separately run each test scenario by indicating the name of a specific [JSON file](https://github.com/mobius-software-ltd/coap-test-suite/tree/master/runner/src/test/resources/json). When the test is over you will get the report for each test scenario:
+Each [JSON file](https://github.com/mobius-software-ltd/amqp-test-suite/tree/master/runner/src/test/resources/json) contains different test scenarios. You can separately run each test scenario by indicating the name of a specific [JSON file](https://github.com/mobius-software-ltd/amqp-test-suite/tree/master/runner/src/test/resources/json). When the test is over you will get the report for each test scenario:
 ```
 +---------- Scenario-ID:  8d4e4778-4fd4-4810-bf57-39316593d09a ---------- Result: SUCCESS ----------+ 
 
@@ -103,8 +103,6 @@ Each [JSON file](https://github.com/mobius-software-ltd/amqp-test-suite/tree/mas
 |          CLOSE         |            1           |          CLOSE         |            1           | 
 
 +------------------------+------------------------+------------------------+------------------------+ 
-
-  
 
 +---------- Scenario-ID:  c0cec8c5-007f-4c1d-9436-af48f47745c6 ---------- Result: SUCCESS ----------+ 
 
@@ -155,7 +153,7 @@ Each [JSON file](https://github.com/mobius-software-ltd/amqp-test-suite/tree/mas
 Each test can be run in its current form.
 Besides you can change the existing test scenarios or add the new ones.
 
-Performance MQTT-SN Test Suite is developed by [Mobius Software](http://mobius-software.com).
+Performance COAP Test Suite is developed by [Mobius Software](http://mobius-software.com).
 
 ## [License](LICENSE.md)
 
